@@ -41,3 +41,24 @@ Pensando nesses fatores, foi agregada no curso de Sistemas Embarcados a constru�
  # 2 - Materiais
  
  Para a montagem do Veículo Seguidor de Linha, foram adquiridos separadamente um Microcontrolador ESP32, Drive de Motor Ponte H com Microcontrolador L298n, Modulo Seguidor de Linha Infravermelho 4 Canais e uma Bateria 9,V recarregável que serão conectadosa um Chassi Acrílico composto com Motor DC, rodas de borracha e roda boba.
+
++ ESP 32
+
+![Imagem](./Imagem/ESP.png)
+
++ Ponte H
+
+![Imagem](./Imagem/PonteH.png)
+
++ Modulo Seguidor de Linha
+
+![Imagem](./Imagem/SeguidorLinha.png)
+
++ Bateria Recarregavel
+
+![Imagem](./Imagem/Bateria.png)
+
++ Chassi Acrilico
+
+![Imagem](./Imagem/Chassi.png)
+
