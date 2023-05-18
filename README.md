@@ -3,7 +3,6 @@
 
 # Carro Seguidor de Linha
 
-----
 
  SISTEMAS EMBARCADOS
  
@@ -38,4 +37,5 @@ As tecnologias de Inteligência Artificial, Internet das Coisas, Computação em
 
 Pensando nesses fatores, foi agregada no curso de Sistemas Embarcados a construção de um sistema produtivo logístico, iniciada com a primeira turma de Sistemas Embarcados, com a construção de uma esteira para separação de itens aprovados e reprovados. As peças reprovadas são direcionadas a um determinado recipiente, sendo que as peças aprovadas são içadas por um braço robótico, elaborado pela segunda turma de Sistemas Embarcados, e colocados em um veículo seguidor de linha que encaminha essas peças para armazenamento.
 
- 
+ ----
+ # Materiais
