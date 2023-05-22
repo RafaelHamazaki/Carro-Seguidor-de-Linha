@@ -66,10 +66,184 @@ Pensando nesses fatores, foi agregada no curso de Sistemas Embarcados a constru�
 
 # 3 - Código-Fonte
 
-----
+```
+
+import machine
+
+import time
 
 
-# 4 - Conclusão do Projeto
+# Define pinos para as saídas dos motores
+
+in1 = machine.PWM(machine.Pin(27), freq=1000, duty=0)   #Frente motor esquerdo
+
+in2_pin = 26
+
+in3_pin = 25
+
+in4 = machine.PWM(machine.Pin(33), freq=1000, duty=0)   #Fente motor direito
+
+# Initializa pinos GPIO para os motores e sensor de peça
+
+in2 = machine.Pin(in2_pin, machine.Pin.OUT)
+in3 = machine.Pin(in3_pin, machine.Pin.OUT)
+
+trigger_pin = machine.Pin(13, machine.Pin.OUT)
+echo_pin = machine.Pin(12, machine.Pin.IN)
 
 
+#Define as velocidades dos motores (de 0 a 1023).
 
+curva = 550
+curva1 = 850
+reto = 900
+
+
+# Funções de direção dos motores
+def frente():
+    print("frente")
+    in1.freq(1000)
+    in1.duty(reto)
+    in2.value(0)
+    in3.value(0)
+    in4.freq(1000)
+    in4.duty(reto)
+
+def esquerda():
+    print("esquerda")
+    in1.freq(1000)
+    in1.duty(curva)
+    in2.value(0)
+    in3.value(0)
+    in4.freq(1000)
+    in4.duty(curva1)
+    
+def esquerda_fechada():
+    print("esquerda_fechada")
+    in1.freq(1000)
+    in1.duty(0)
+    in2.value(0)
+    in3.value(0)
+    in4.freq(1000)
+    in4.duty(curva)
+    
+def direita():
+    print("direita")
+    in1.freq(1000)
+    in1.duty(curva1)
+    in2.value(0)
+    in3.value(0)
+    in4.freq(1000)
+    in4.duty(curva)
+    
+def direita_fechada():
+    print("direita_fechada")
+    in1.freq(1000)
+    in1.duty(curva)
+    in2.value(0)
+    in3.value(0)
+    in4.freq(1000)
+    in4.duty(0)
+    
+def parada():
+    print("parada")
+    in1.freq(1000)
+    in1.duty(0)
+    in2.value(0)
+    in3.value(0)
+    in4.freq(1000)
+    in4.duty(0)
+    
+    trigger_pin.on()
+    time.sleep_us(10)
+    trigger_pin.off()
+        
+    pulse_duration = machine.time_pulse_us(echo_pin, 1, 30000)
+    distancia = int(pulse_duration / 58.0)
+    
+    estado_anterior = distancia
+    while True:
+        trigger_pin.on()
+        time.sleep_us(10)
+        trigger_pin.off()
+        
+        pulse_duration = machine.time_pulse_us(echo_pin, 1, 30000)
+        distancia = int(pulse_duration / 58.0)
+    
+        estado_atual = distancia
+        print(distancia)
+        if estado_atual != estado_anterior and estado_anterior != estado_atual+1 and estado_anterior != estado_atual-1:
+            time.sleep(1)
+            in1.freq(1000)
+            in1.duty(500)
+            in2.value(0)
+            in3.value(0)
+            in4.freq(1000)
+            in4.duty(500)
+            time.sleep(0.5)
+            break
+        estado_anterior = estado_atual
+        
+        time.sleep(0.1)
+    
+    while True:
+        if valor_sensor_parada.read() < 1000:
+            break
+            
+#     sensor_carga = machine.Pin(3, Pin.IN)
+#     presenca_carga = sensor_carga.value()
+#     while True:
+#         carga_anterior = presenca_carga
+#         time.sleep(0.1) 
+#         presenca_carga = carga.value()
+#         if carga_anterior != presenca_carga:
+#             break
+        
+    
+#     carga_anterior = presenca_carga
+
+# loop de controle do robo
+while True:
+    # Lê sensores infra-vermelho e chama a função de direção apropriada.
+    
+    valor_sensor_esquerdo = machine.ADC(machine.Pin(34))
+    valor_sensor_direito = machine.ADC(machine.Pin(35))
+    valor_sensor_meio = machine.ADC(machine.Pin(32))
+    valor_sensor_parada = machine.ADC(machine.Pin(14))
+   
+   
+   
+    print ("e", valor_sensor_esquerdo.read()/4, "    ", valor_sensor_direito.read()/4, "    ", valor_sensor_meio.read()/4)
+     
+     
+    
+    if valor_sensor_parada.read() > 1000:
+        parada()
+    if valor_sensor_esquerdo.read() < 1000 and valor_sensor_direito.read() > 1000 and valor_sensor_meio.read() < 1000:
+        direita_fechada()
+    elif valor_sensor_esquerdo.read() < 1000 and valor_sensor_direito.read() > 1000 and valor_sensor_meio.read() > 1000:
+        direita()
+    elif valor_sensor_esquerdo.read() > 1000 and valor_sensor_direito.read() > 1000 and valor_sensor_meio.read() > 1000:
+        frente()
+    elif valor_sensor_esquerdo.read() > 1000 and valor_sensor_direito.read() < 1000 and valor_sensor_meio.read() < 1000:
+        esquerda_fechada()
+    elif valor_sensor_esquerdo.read() > 1000 and valor_sensor_direito.read() < 1000 and valor_sensor_meio.read() > 1000:
+        esquerda()
+    elif valor_sensor_esquerdo.read() < 1000 and valor_sensor_direito.read() < 1000 and valor_sensor_meio.read() > 1000:
+        frente()
+    else:
+        in1.freq(1000)
+        in1.duty(0)
+        in4.freq(1000)
+        in4.duty(0)
+
+    
+    time.sleep(0.1) 
+    
+    
+```
+    
+   ---- 
+    
+    
+   # Conclusão do Projeto
