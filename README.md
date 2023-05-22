@@ -69,18 +69,14 @@ Pensando nesses fatores, foi agregada no curso de Sistemas Embarcados a constru�
 ```
 
 import machine
-
 import time
 
 
 # Define pinos para as saídas dos motores
 
 in1 = machine.PWM(machine.Pin(27), freq=1000, duty=0)   #Frente motor esquerdo
-
 in2_pin = 26
-
 in3_pin = 25
-
 in4 = machine.PWM(machine.Pin(33), freq=1000, duty=0)   #Fente motor direito
 
 # Initializa pinos GPIO para os motores e sensor de peça
