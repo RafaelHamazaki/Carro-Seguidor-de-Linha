@@ -243,3 +243,8 @@ while True:
     
     
    # Conclusão do Projeto
+   
+   
+   Com o encerramento das tarefas criadas durante todo o processo de planejamento e execução do projeto integrador III – Veículo Guiado (AGV), respeitando e validando todo o fluxo do processo determinado, é possível avaliar em conjunto que o que temos como resultado se aproxima muito do que foi proposto no kick-off do projeto, existem sim algumas variáveis que por alguma razão não entendemos ser importante controlar no início (como os elementos de fixação dos sensores) e que de certa forma provocou alguns impactos em nosso tempo de realização assim como no resultado, mas com as ferramentas utilizadas, o apoio dos professores e a boa relação do grupo foi possível realizar a entrega, com qualidade.
+Com foco especifico na execução do projeto, é possível analisar que do planejamento a execução é de extrema importância, o domínio sobre os ajustes mecânicos e toda a sua montagem, a complexidade de integrar os elementos em um escopo que permita extrair o máximo de qualidade e funcionamento de todos os elementos envolvidos nos faz pensar que o uso de uma ferramenta de CAD, com desenho assistido por computador seja um conhecimento que mitiga os riscos de execução no rascunho do projeto de desenho analisando com foco na realização, a funcionalidade do projeto do braço robótico integra de maneira satisfatória com o sistemas de transferências de cargas com o “Veiculo Guiado” (AVG), e que para nós elementos do grupo foi uma grande experiência poder realizar esse trabalho, em todos os aspectos, programação, processo de compras, montagem e as discussões do grupo, amadurecendo nosso relacionamento interpessoal e nossa comunicação profissional.
+
