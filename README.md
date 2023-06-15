@@ -68,6 +68,13 @@ Pensando nesses fatores, foi agregada no curso de Sistemas Embarcados a constru�
 
 ----
 
+Segue um vídeo do projeto:
+
+https://github.com/RafaelHamazaki/Carro-Seguidor-de-Linha/assets/106597490/d4273548-a374-497e-8306-0bcdaa11aaa9
+
+
+----
+
 # 3 - Código-Fonte
 
 ```
